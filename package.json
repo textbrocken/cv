@@ -1,0 +1,43 @@
+{
+  "name": "@textbrocken/cv",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Generate PDF CVs and letters from Markdown or JSON5",
+  "keywords": [
+    "markdown",
+    "document",
+    "pdf",
+    "cv",
+    "resume",
+    "lebenslauf"
+  ],
+  "repository": {
+    "url": "https://github.com/textbrocken/cv.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/textbrocken/cv",
+  "bin": "cli.mjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "cli.mjs",
+    "lib",
+    "fonts",
+    "scripts"
+  ],
+  "dependencies": {
+    "@react-pdf/renderer": "^4.3.2",
+    "hyphen": "^1.14.1",
+    "js-yaml": "^4.1.1",
+    "json5": "^2.2.3",
+    "meow": "13.x",
+    "open": "10.x",
+    "react": "^19.2.4"
+  },
+  "scripts": {
+    "postinstall": "node scripts/patch-react-pdf.cjs"
+  },
+  "author": "mbaer3000",
+  "license": "MIT"
+}

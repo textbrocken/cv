@@ -1,0 +1,19 @@
+node_modules
+.DS_Store
+.npmrc
+
+# Build output
+dist/
+
+# Temp files
+.temp
+preparedHtml.html
+*.pdf
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
