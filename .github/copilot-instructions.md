@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-CLI tool that generates PDF documents (CVs/letters) from Markdown or JSON5, following the German DIN 5008 standard.
+CLI tool that generates PDF documents (CVs/letters) from Markdown or JSON5.
 
 ## Commands
 
