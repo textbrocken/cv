@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-This is a CLI tool that generates PDF documents (CVs/letters) from Markdown or JSON5 configuration files, following the German DIN 5008 standard.
+CLI tool that generates PDF documents (CVs/letters) from Markdown or JSON5, following the German DIN 5008 standard.
 
 ## Commands
 
@@ -17,6 +17,7 @@ cat examples/text.md | npx @textbrocken/cv
 # CLI options
 -i, --input     Input file (.md or .json5)
 -o, --output    Output PDF file (defaults to input name + .pdf)
+-v, --verbose   Verbose output
 -q, --quiet     Suppress output
 -a, --auto-open Open PDF after generation (default: true)
 ```
@@ -25,11 +26,11 @@ There are no test or lint commands configured.
 
 ## Architecture
 
-Pure ESM module (`"type": "module"` in package.json). Requires Node.js >= 22.
+Pure ESM module (`"type": "module"` in package.json). Requires Node.js >= 22. Uses top-level await.
 
 **Pipeline flow:** `cli.mjs` → `lib/parse.js` → `lib/render.js`
 
-1. **cli.mjs** - Entry point. Parses CLI args (meow), detects input format, orchestrates the pipeline
+1. **cli.mjs** - Entry point. Parses CLI args (meow), validates input format, orchestrates the pipeline
 2. **lib/parse.js** - Parses Markdown with YAML frontmatter into the internal data structure
 3. **lib/hyphenate.js** - German hyphenation using the `hyphen` library
 4. **lib/typeset.js** - Typography fixes (German quotes, dashes, ellipses)
@@ -77,7 +78,7 @@ Key dependencies (~30MB node_modules, no browser/Chrome):
 - `@react-pdf/renderer` + `react` - PDF generation
 - `hyphen` - German hyphenation patterns
 - `meow` - CLI argument parsing
-- `json5` - Input parsing
+- `js-yaml` + `json5` - Input parsing
 
 ## Patches
 
